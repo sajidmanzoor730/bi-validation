@@ -1,0 +1,25 @@
+Issue_ID,Issue_Type,Affected_Field,Detection_Rule,Cleaning_Action,Affected_Records,Pct_Of_Raw_Rows
+DQ01,Duplicate_Record_ID,Record_ID,Record_ID appears more than once (rows after the first),"Keep first occurrence, drop the rest",160,1.96
+DQ02,Missing_Category,Category,Category is blank,Set to 'Unknown',75,0.92
+DQ03,Invalid_Category,Category,Category not in the 8 approved values,Set to 'Unknown',10,0.12
+DQ04,Missing_Agent,Agent,Agent is blank,Set to 'Unassigned',55,0.67
+DQ05,Missing_CSAT,CSAT,Completed/Closed record with blank CSAT,"Leave NULL (no imputation, excluded from AVG)",45,0.55
+DQ06,Negative_Resolution_Minutes,Resolution_Minutes,Resolution_Minutes < 0,Recalculate from Created/Resolved dates,12,0.15
+DQ07,QA_Score_Out_Of_Range,QA_Score,QA_Score outside 0-100,Set to NULL; QA_Result = 'Not Scored',10,0.12
+DQ08,Resolved_Before_Created,Resolved_Date,Resolved_Date earlier than Created_Date,Set Resolved_Date and Resolution_Minutes to NULL; SLA_Status = 'Unknown',12,0.15
+DQ09,Invalid_Priority,Priority,Priority not in P1-P4,Infer from original SLA_Target_Minutes (60/240/480/960),8,0.1
+DQ10,Incorrect_SLA_Status,SLA_Status,SLA_Status contradicts dates vs SLA target,Recalculate (Met if minutes <= target),18,0.22
+DQ11,Missing_SLA_Status,SLA_Status,SLA_Status is blank,Recalculate,15,0.18
+DQ12,Missing_SLA_Target,SLA_Target_Minutes,SLA_Target_Minutes is blank,Recalculate from Priority,20,0.25
+DQ13,Incorrect_SLA_Target,SLA_Target_Minutes,SLA_Target_Minutes does not match Priority,Recalculate from Priority,15,0.18
+DQ14,Resolution_Minutes_Mismatch,Resolution_Minutes,Resolution_Minutes <> minutes between Created and Resolved,Recalculate from dates,25,0.31
+DQ15,Missing_Resolution_Minutes,Resolution_Minutes,Resolved record with dates but blank minutes,Recalculate from dates,20,0.25
+DQ16,Incorrect_QA_Result,QA_Result,QA_Result contradicts QA_Score (Pass if >= 85),Recalculate,20,0.25
+DQ17,Missing_QA_Result,QA_Result,QA_Result is blank,Recalculate,15,0.18
+DQ18,Incorrect_Rework_Flag,Rework_Flag,"Rework_Flag contradicts rule (QA<80, or Repeat and QA<90)",Recalculate,20,0.25
+DQ19,Missing_Rework_Flag,Rework_Flag,Rework_Flag is blank,Recalculate,10,0.12
+DQ20,Missing_Created_Month,Created_Month,Created_Month is blank,Recalculate (YYYY-MM),25,0.31
+DQ21,Incorrect_Created_Month,Created_Month,Created_Month <> month of Created_Date,Recalculate,15,0.18
+DQ22,Missing_Week_Start,Week_Start,Week_Start is blank,Recalculate (Monday of week),25,0.31
+DQ23,Incorrect_Week_Start,Week_Start,Week_Start is not the Monday of Created_Date's week,Recalculate,15,0.18
+DQ24,Missing_Data_Quality_Flag,Data_Quality_Flag,Data_Quality_Flag is blank,Recalculate (Valid/Corrected/Standardized/Nulled),120,1.47
