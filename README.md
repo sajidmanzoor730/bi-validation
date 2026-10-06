@@ -4,17 +4,9 @@
 
 ### From messy operational data to a reconciled, trustworthy Power BI dashboard
 
-![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
-![SQL](https://img.shields.io/badge/SQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
-![DAX](https://img.shields.io/badge/DAX-0078D4?style=for-the-badge)
+🐍 **Python** · 🗄️ **SQL** · 📊 **Power BI** · 📈 **DAX** · 🐼 **Pandas**
 
-![Records](https://img.shields.io/badge/Clean%20Records-8%2C000-2ea44f?style=flat-square)
-![Raw](https://img.shields.io/badge/Raw%20Rows-8%2C160-orange?style=flat-square)
-![Issues](https://img.shields.io/badge/Issue%20Types-24-red?style=flat-square)
-![Seed](https://img.shields.io/badge/Seed-20260606-blue?style=flat-square)
-![Data](https://img.shields.io/badge/Data-100%25%20Synthetic-purple?style=flat-square)
+🧾 **8,000** clean records · 📥 **8,160** raw rows · 🐞 **24** issue types · 🌱 Seed **20260606** · 🔒 100% synthetic
 
 </div>
 
