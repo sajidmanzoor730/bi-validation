@@ -1,8 +1,8 @@
 # 🔍 BI Validation & Monitoring
 
-A complete Data Analytics and Power BI project focused on validating operational KPIs from raw source data through Python, SQL, and Power BI.
+A Data Analytics validation project focused on making operational KPIs trustworthy through Python, data-quality checks, and an independent SQL validation workflow.
 
-This project demonstrates how a Data Analyst can clean operational data, identify data-quality problems, build a reliable reporting model, calculate KPIs independently, and reconcile those results against Power BI.
+This project demonstrates how a Data Analyst can profile operational data, identify data-quality problems, build a clean analytical dataset, calculate KPI baselines independently, and prepare a reliable foundation for BI reporting.
 
 ---
 
@@ -330,9 +330,9 @@ The project validates:
 
 ---
 
-## 📊 Power BI
+## 📊 BI Reporting
 
-Power BI is the **primary reporting and visualization layer** of this project.
+The cleaned dataset and validation framework are structured to support a Power BI reporting layer.
 
 ### Reporting Architecture
 
@@ -354,7 +354,7 @@ Power BI is the **primary reporting and visualization layer** of this project.
 
 ---
 
-## 🧩 Power BI Data Model
+## 🧩 Planned Power BI Data Model
 
 The model uses a central operational fact table with supporting dimensions.
 
@@ -393,7 +393,7 @@ Each agent belongs to one operational team.
 
 ---
 
-## 📑 Power BI Report Pages
+## 📑 Planned Power BI Report Pages
 
 ### 1. Executive Overview
 
@@ -500,7 +500,7 @@ Drilldown flow:
 
 ---
 
-## 🧮 DAX KPI Layer
+## 🧮 Planned DAX KPI Layer
 
 Power BI measures use reusable DAX rather than hardcoded dashboard values.
 
@@ -576,7 +576,7 @@ Additional measures will cover:
 
 ---
 
-## 🔄 KPI Reconciliation
+## 🔄 KPI Reconciliation Framework
 
 The project verifies that the same business definition produces the same result across analytical layers.
 
@@ -799,7 +799,7 @@ A dedicated `DimDate` table supports time-intelligence analysis.
 
 ## 🎯 What This Project Demonstrates
 
-This project demonstrates practical Data Analyst skills across the complete reporting lifecycle:
+This project demonstrates practical Data Analyst skills across the data-quality and KPI-validation lifecycle:
 
 - Data cleaning
 - Data profiling
@@ -849,17 +849,25 @@ https://github.com/sajidmanzoor730
 
 ## 📌 Project Status
 
-**Current stage:** Dataset and validation framework completed.
+**Current stage:** Data-generation, cleaning, data-quality issue logging, and KPI-validation framework completed. The repository is intentionally transparent about the BI layer: the Power BI model, DAX measures, dashboard pages, and final reconciliation are planned next.
+
+### Current Deliverables
+
+- Reproducible operational dataset
+- Raw vs clean dataset workflow
+- Data-quality issue inventory
+- Record-level issue log
+- Documented business rules
+- KPI baseline definitions
+- Python data-generation and validation workflow
 
 ### Next Development Stages
 
-1. Build SQL validation scripts
-2. Create the Power BI data model
-3. Build Power Query transformations
-4. Create DAX KPI measures
-5. Build the Power BI dashboard
-6. Create the KPI reconciliation page
-7. Add data-quality drilldowns
-8. Validate Python vs SQL vs Power BI
-9. Add final screenshots
-10. Complete the portfolio case study
+1. Add SQL validation scripts
+2. Build the Power BI model
+3. Create DAX KPI measures
+4. Build dashboard pages
+5. Add KPI reconciliation
+6. Add data-quality drilldowns
+7. Add final screenshots
+8. Complete the portfolio case study
