@@ -1,5 +1,3 @@
-Got it. No buttons, no badges that look like buttons, and no extra UI elements. Just a clean, attractive GitHub README with headings, icons, tables, and proper formatting.
-
 # 🔍 BI Validation & Monitoring
 
 > A practical BI validation framework for checking whether operational KPIs remain accurate, consistent, and traceable from source data through SQL analysis and dashboard reporting.
