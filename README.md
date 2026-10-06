@@ -1,10 +1,20 @@
 # 🔍 BI Validation & Monitoring
 
-A Data Analytics validation project focused on making operational KPIs trustworthy through Python, data-quality checks, and an independent SQL validation workflow.
+**Data Analyst project:** a reproducible data-quality and KPI-validation workflow for operational reporting.
+
+The project focuses on a core analytics problem: **how do you know the KPI on a dashboard is correct?** It uses Python to generate, profile, clean, and validate operational data, with documented rules and KPI baselines designed for independent SQL/BI validation.
 
 This project demonstrates how a Data Analyst can profile operational data, identify data-quality problems, build a clean analytical dataset, calculate KPI baselines independently, and prepare a reliable foundation for BI reporting.
 
 ---
+
+## 🎯 Business Problem
+
+Operational dashboards are only useful when the underlying data and KPI definitions can be trusted. This project intentionally introduces realistic data-quality issues, identifies them, applies documented cleaning rules, and establishes a clean baseline for reporting.
+
+The key analyst workflow is:
+
+**Profile → Clean → Validate → Define KPIs → Reconcile → Report**
 
 ## 📊 Dataset
 
@@ -46,17 +56,11 @@ The clean dataset is generated from the raw dataset using documented cleaning an
             ↓
     Clean Analytical Dataset
             ↓
-    SQL KPI Validation
+    KPI Baseline & Business Rules
             ↓
-    Power BI Data Model
+    Planned SQL / BI Validation
             ↓
-    DAX Measures
-            ↓
-    Power BI Dashboard
-            ↓
-    Source vs SQL vs Power BI Reconciliation
-            ↓
-    Investigation & Root-Cause Analysis
+    Reconciliation & Root-Cause Analysis
 
 ---
 
@@ -233,6 +237,12 @@ or:
 
 ---
 
+## 💡 KPI Baseline & Business Takeaways
+
+The cleaned dataset establishes a trustworthy starting point for operational reporting. The baseline shows **94.5% completion, 86.0% SLA met, 4.05 average CSAT, 87.8% QA pass rate, and 7.8% rework**.
+
+The important analytical point is that these numbers are calculated only after the raw data has been cleaned and business rules have been applied. That makes the baseline suitable for later reconciliation against SQL and BI calculations.
+
 ## 📈 Clean Dataset KPI Baseline
 
 | KPI | Value |
@@ -332,7 +342,7 @@ The project validates:
 
 ## 📊 BI Reporting
 
-The cleaned dataset and validation framework are structured to support a Power BI reporting layer.
+The cleaned dataset and validation framework are **prepared for** a Power BI reporting layer. The repository is transparent about implementation status rather than presenting planned dashboard work as completed.
 
 ### Reporting Architecture
 
@@ -751,35 +761,16 @@ A dedicated `DimDate` table supports time-intelligence analysis.
 
 ---
 
-## 📁 Project Structure
+## 📁 Repository Contents
 
-    bi-validation/
-    │
-    ├── README.md
-    │
-    ├── data/
-    │   ├── BI_Validation_Raw.csv
-    │   ├── BI_Validation_Clean.csv
-    │   ├── BI_Validation_Data_Quality_Issues.csv
-    │   └── BI_Validation_Row_Issue_Log.csv
-    │
-    ├── python/
-    │   └── generate_bi_validation_data.py
-    │
-    ├── sql/
-    │   ├── 01_data_quality_checks.sql
-    │   ├── 02_kpi_validation.sql
-    │   └── 03_reconciliation.sql
-    │
-    ├── powerbi/
-    │   └── BI_Validation_Dashboard.pbix
-    │
-    ├── documentation/
-    │   ├── data_dictionary.md
-    │   ├── validation_rules.md
-    │   └── powerbi_model.md
-    │
-    └── screenshots/
+The current repository contains the reproducible data-generation and validation foundation:
+
+- `BI_Validation_Raw.csv` — raw operational dataset
+- `BI_Validation_Clean.csv` — cleaned analytical dataset
+- `BI_Validation_Data_Quality_Issues.csv` — issue inventory
+- `BI_Validation_Row_Issue_Log.csv` — record-level findings
+- `generate_bi_validation_data.py` — reproducible Python generator and validation workflow
+- `README.md` — business rules, KPI definitions, and planned BI architecture
 
 ---
 
@@ -849,7 +840,9 @@ https://github.com/sajidmanzoor730
 
 ## 📌 Project Status
 
-**Current stage:** Data-generation, cleaning, data-quality issue logging, and KPI-validation framework completed. The repository is intentionally transparent about the BI layer: the Power BI model, DAX measures, dashboard pages, and final reconciliation are planned next.
+**Current stage:** Data generation, cleaning, data-quality issue logging, KPI baselines, and validation framework completed.
+
+The repository is intentionally transparent: **SQL scripts, the Power BI model, DAX measures, dashboard pages, and final cross-layer reconciliation are planned next.**
 
 ### Current Deliverables
 
