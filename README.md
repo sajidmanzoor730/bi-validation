@@ -1,12 +1,8 @@
+Got it. No buttons, no badges that look like buttons, and no extra UI elements. Just a clean, attractive GitHub README with headings, icons, tables, and proper formatting.
+
 # 🔍 BI Validation & Monitoring
 
 > A practical BI validation framework for checking whether operational KPIs remain accurate, consistent, and traceable from source data through SQL analysis and dashboard reporting.
-
-![SQL](https://img.shields.io/badge/SQL-Analysis-blue)
-![Python](https://img.shields.io/badge/Python-Validation-yellow)
-![Power BI](https://img.shields.io/badge/Power%20BI-Reporting-orange)
-![Data Quality](https://img.shields.io/badge/Data%20Quality-Validation-green)
-![Analytics](https://img.shields.io/badge/Focus-Data%20Analytics-purple)
 
 ---
 
@@ -36,7 +32,7 @@ The goal is to make important reporting metrics **traceable, consistent, and rep
 
 ---
 
-## 🔎 1. Source-to-Report Reconciliation
+## 🔎 Source-to-Report Reconciliation
 
 Important reporting metrics should be compared between the source data, analytical layer, and dashboard.
 
@@ -82,7 +78,7 @@ These metrics should be validated against the underlying ticket-level records.
 
 ---
 
-## 🧹 2. Data-Quality Gates
+## 🧹 Data-Quality Gates
 
 Before reporting KPIs, perform basic data-quality checks.
 
@@ -124,7 +120,7 @@ Check for:
 
 ---
 
-## 📊 3. KPI Validation
+## 📊 KPI Validation
 
 Each KPI should have a defined calculation and validation rule.
 
@@ -139,7 +135,7 @@ Each KPI should have a defined calculation and validation rule.
 
 ---
 
-## 📈 4. Dashboard Reconciliation
+## 📈 Dashboard Reconciliation
 
 After the analytical layer is validated, compare the results with the dashboard.
 
@@ -157,7 +153,7 @@ A dashboard value should be traceable to a defined calculation and underlying da
 
 ---
 
-## 🔄 5. Refresh Review
+## 🔄 Refresh Review
 
 After a dataset refresh, review:
 
@@ -173,7 +169,7 @@ Large changes should be investigated rather than automatically accepted.
 
 ---
 
-## 🐞 6. Investigation Workflow
+## 🐞 Investigation Workflow
 
 When a KPI does not reconcile:
 
@@ -183,7 +179,7 @@ This creates a repeatable investigation process instead of relying on manual tri
 
 ---
 
-## 🧠 7. Validation Principles
+## 🧠 Validation Principles
 
 ### 🔗 Traceability
 
@@ -283,8 +279,8 @@ It does not represent a live enterprise monitoring environment and does not incl
 
 **Data Analyst | SQL | Power BI | Python | Excel**
 
-🔗 GitHub: [@sajidmanzoor730](https://github.com/sajidmanzoor730)
+GitHub: `sajidmanzoor730`
 
 ---
 
-⭐ If you find this project useful, feel free to explore the other analytics projects in my portfolio.
+⭐ Built as part of a Data Analytics portfolio focused on SQL, Python, Power BI, data quality, and operational reporting.
