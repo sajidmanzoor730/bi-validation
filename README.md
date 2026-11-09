@@ -1,5 +1,7 @@
 # BI Validation & Monitoring
 
+![BI validation](https://github.com/sajidmanzoor730/bi-validation/actions/workflows/validate.yml/badge.svg)
+
 A reproducible data-quality and KPI-validation project built around a synthetic operational dataset. The goal is simple: **make sure the numbers used in operational reporting are consistent with the underlying records and business rules.**
 
 This repository demonstrates data profiling, controlled defect injection, cleaning, issue logging, independent validation, and KPI reconciliation using Python and SQL.
