@@ -22,6 +22,10 @@ The generator creates an intentionally imperfect raw dataset, applies documented
 | `validate_project.py` | Independent standard-library quality gate for the published files |
 | `tests/test_validation.py` | Regression tests for key project controls |
 | `sql/validation_checks.sql` | SQLite-compatible exception queries and KPI baseline |
+| `reconcile_kpis.py` | Python KPI baseline and optional Power BI export comparison |
+| `powerbi/BI_Validation_Measures.dax` | DAX measures and Calendar table definition |
+| `DATA_DICTIONARY.md` | Field definitions, types and KPI denominators |
+| `POWER_BI_DASHBOARD_GUIDE.md` | Report page plan, setup steps and reconciliation workflow |
 
 ## Quick start
 
@@ -112,17 +116,20 @@ The original project baseline documents the following values from the curated sy
 - Defect injection, cleaning rules, issue summary and row-level issue log.
 - Independent Python validation script and regression tests.
 - SQLite-compatible SQL exception checks and KPI baseline query.
+- Power BI DAX measure definitions, data dictionary and dashboard build guide.
+- Python KPI baseline export and optional comparison against a Power BI CSV export.
+- CI execution of the Python KPI baseline and regression tests.
 
 **Not yet implemented / not claimed**
 - A published Power BI `.pbix` report and completed semantic model.
-- Executed DAX measures reconciled against Python and SQL.
+- Actual DAX measures executed and reconciled against Python and SQL.
 - Scheduled production refresh monitoring, gateway integration or alert delivery.
 
 The architecture and report-page ideas in this project are a design direction, not a claim that a live enterprise BI service has been deployed.
 
-## Suggested next milestone
+## Power BI next step
 
-Build the Power BI model and report from the curated dataset, implement the documented DAX measures, then record the Python / SQL / DAX results side by side with an explicit variance and pass/fail status.
+Follow `POWER_BI_DASHBOARD_GUIDE.md` to build the report in Power BI Desktop. Copy measures from `powerbi/BI_Validation_Measures.dax`. Export the report's KPI values as a CSV with `Metric,PowerBI_Value` columns, then run `python reconcile_kpis.py --powerbi-export path/to/powerbi_kpis.csv`. A successful comparison is required before claiming cross-tool reconciliation.
 
 ## Skills demonstrated
 
