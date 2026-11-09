@@ -22,8 +22,11 @@ class ReconciliationTests(unittest.TestCase):
         self.assertEqual("PASS", result[0]["Status"])
 
     def test_missing_powerbi_metric_is_not_reported_as_pass(self):
-        result = reconcile({"Average CSAT": 4.05}, Path(__file__).resolve().parent / "empty_export.csv") if False else None
-        self.assertIsNone(result)
+        with tempfile.TemporaryDirectory() as directory:
+            export = Path(directory) / "powerbi.csv"
+            export.write_text("Metric,PowerBI_Value\\n", encoding="utf-8")
+            result = reconcile({"Average CSAT": 4.05}, export)
+        self.assertEqual("MISSING", result[0]["Status"])
 
 
 if __name__ == "__main__":
