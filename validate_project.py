@@ -74,8 +74,16 @@ def validate(root: Path = ROOT) -> tuple[list[str], dict[str, object]]:
         "Data_Quality_Flag",
     }
     check(bool(clean), "Clean dataset is empty")
-    check(required.issubset(clean[0].keys()), "Clean dataset is missing required columns")
+    missing_columns = required.difference(clean[0].keys() if clean else set())
+    check(not missing_columns, "Clean dataset is missing required columns: " + ", ".join(sorted(missing_columns)))
     check(len(raw) == EXPECTED_RAW_ROWS, f"Expected {EXPECTED_RAW_ROWS} raw rows; found {len(raw)}")
+    if not clean or missing_columns:
+        return failures, {
+            "raw_rows": len(raw),
+            "clean_rows": len(clean),
+            "checks_run": checks,
+            "checks_failed": len(failures),
+        }
     check(len(clean) == EXPECTED_CLEAN_ROWS, f"Expected {EXPECTED_CLEAN_ROWS} clean rows; found {len(clean)}")
 
     raw_ids = [r.get("Record_ID", "") for r in raw]
