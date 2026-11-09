@@ -1,0 +1,116 @@
+-- BI Validation & Monitoring | Power BI DAX measures
+-- Import BI_Validation_Clean.csv and rename the table to BI_Validation_Clean.
+-- Set Created_Date and Resolved_Date to Date/Time; numeric columns to Whole/Decimal Number.
+-- Create the Calendar table below and mark Calendar[Date] as the date table.
+
+Calendar =
+VAR MinDate = MIN ( BI_Validation_Clean[Created_Date] )
+VAR MaxDate = MAX ( BI_Validation_Clean[Created_Date] )
+RETURN
+    ADDCOLUMNS (
+        CALENDAR ( DATE ( YEAR ( MinDate ), 1, 1 ), DATE ( YEAR ( MaxDate ), 12, 31 ) ),
+        "Year", YEAR ( [Date] ),
+        "Month Number", MONTH ( [Date] ),
+        "Month", FORMAT ( [Date], "MMM" ),
+        "Year-Month", FORMAT ( [Date], "YYYY-MM" ),
+        "Week Start", [Date] - WEEKDAY ( [Date], 2 ) + 1
+    )
+
+-- Create relationship: Calendar[Date] (1) -> BI_Validation_Clean[Created_Date] (*).
+-- If Created_Date retains a time component, create a date-only Created_Date_Date column
+-- in Power Query and relate Calendar[Date] to that column.
+
+Total Records =
+COUNTROWS ( BI_Validation_Clean )
+
+Completed Records =
+CALCULATE (
+    [Total Records],
+    BI_Validation_Clean[Status] IN { "Completed", "Closed" }
+)
+
+Completion Rate % =
+DIVIDE ( [Completed Records], [Total Records] )
+
+Resolved Records =
+CALCULATE (
+    [Total Records],
+    BI_Validation_Clean[SLA_Status] IN { "Met", "Breached" }
+)
+
+SLA Met Records =
+CALCULATE (
+    [Total Records],
+    BI_Validation_Clean[SLA_Status] = "Met"
+)
+
+SLA Breached Records =
+CALCULATE (
+    [Total Records],
+    BI_Validation_Clean[SLA_Status] = "Breached"
+)
+
+SLA Achievement % =
+DIVIDE ( [SLA Met Records], [Resolved Records] )
+
+Average Resolution Minutes =
+AVERAGE ( BI_Validation_Clean[Resolution_Minutes] )
+
+Average CSAT =
+AVERAGE ( BI_Validation_Clean[CSAT] )
+
+Repeat Records =
+CALCULATE (
+    [Total Records],
+    BI_Validation_Clean[Repeat_Flag] = 1
+)
+
+Repeat Rate % =
+DIVIDE ( [Repeat Records], [Total Records] )
+
+Escalated Records =
+CALCULATE (
+    [Total Records],
+    BI_Validation_Clean[Escalated_Flag] = 1
+)
+
+Escalation Rate % =
+DIVIDE ( [Escalated Records], [Total Records] )
+
+QA Scored Records =
+CALCULATE (
+    [Total Records],
+    BI_Validation_Clean[QA_Result] IN { "Pass", "Fail" }
+)
+
+QA Pass Records =
+CALCULATE (
+    [Total Records],
+    BI_Validation_Clean[QA_Result] = "Pass"
+)
+
+QA Pass Rate % =
+DIVIDE ( [QA Pass Records], [QA Scored Records] )
+
+Rework Records =
+CALCULATE (
+    [Total Records],
+    BI_Validation_Clean[Rework_Flag] = 1
+)
+
+Rework Rate % =
+DIVIDE ( [Rework Records], [Total Records] )
+
+Valid Data Records =
+CALCULATE (
+    [Total Records],
+    BI_Validation_Clean[Data_Quality_Flag] = "Valid"
+)
+
+Valid Data Rate % =
+DIVIDE ( [Valid Data Records], [Total Records] )
+
+-- Formatting guidance:
+-- Format all measures ending in % as Percentage (1-2 decimal places).
+-- Format Average CSAT as Decimal (2 places).
+-- Format Average Resolution Minutes as Decimal (1 place).
