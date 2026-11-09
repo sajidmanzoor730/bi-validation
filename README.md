@@ -94,20 +94,20 @@ The cleaning process keeps the 8,000 unique records and applies explicit rules t
 
 ## KPI baseline
 
-The original project baseline documents the following values from the curated synthetic dataset. Recalculate them with Python or SQL when regenerating the data:
+The following values were recalculated from the published 8,000-row clean synthetic dataset by `reconcile_kpis.py`. The exact values are also stored in `outputs/python_kpi_baseline.csv`:
 
 | KPI | Baseline |
 |---|---:|
 | Total records | 8,000 |
-| Completion rate | 94.5% |
-| SLA achievement | 86.0% |
-| Average resolution time | 328 minutes |
+| Completion rate | 94.46% |
+| SLA achievement | 86.03% |
+| Average resolution time | 327.72 minutes |
 | Average CSAT | 4.05 |
-| Repeat rate | 6.2% |
-| Escalation rate | 4.1% |
-| QA pass rate | 87.8% |
-| Rework rate | 7.8% |
-| Records flagged Valid | 93.9% |
+| Repeat rate | 6.15% |
+| Escalation rate | 4.09% |
+| QA pass rate | 87.84% |
+| Rework rate | 7.78% |
+| Records flagged Valid | 93.94% |
 
 ## Current implementation status
 
